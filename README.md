@@ -1,2 +1,2 @@
 # Programmers-Algorithm
-c++ Algorithm Preparation
+python Algorithm Preparation
