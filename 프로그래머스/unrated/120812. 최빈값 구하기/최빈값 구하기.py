@@ -1,5 +1,8 @@
 def solution(array):
-    count = [0] * (len(array) + 1)
+    count = [0] * (max(array) + 1)
+    print(max(array))
+    print(len(array))
+    print(count)
     
     for i in array:
         count[i] += 1
