@@ -1,26 +1,16 @@
 def solution(polynomial):
-    polynomial = polynomial.replace(' ', '').split('+')
+    xnum = 0
+    const = 0
     
-    a, b = 0, 0
-    for i in polynomial:
-        if 'x' in i:
-            if len(i) > 1:
-                a += int(i[:-1])
-            else:
-                a +=1
+    for element in polynomial.split(' + '):
+        if element.isdigit():
+            const += int(element)
         else:
-            b += int(i)
-    
-    if a == 0:
-        return '{}'.format(b)
-    elif a == 1:
-        if b == 0:
-            return 'x'
-        elif b != 0:
-            return 'x + {}'.format(b)
-    elif a > 1:
-        if b == 0:
-            return '{}x'.format(a)
-        elif b != 0:
-            return '{}x + {}'.format(a, b)
+            xnum = xnum + 1 if element == 'x' else xnum + int(element[:-1])
+    if xnum == 0:
+        return str(const)
+    elif xnum == 1:
+        return 'x + ' + str(const) if const != 0 else 'x'
+    else:
+        return f'{xnum}x + {const}' if const != 0 else f'{xnum}x'
   
