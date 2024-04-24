@@ -1,9 +1,10 @@
 def solution(n, m, section):
-    answer = 1
-    paint = section[0]
-    for i in range(1, len(section)):
-        if section[i] - paint >= m:
+    
+    answer, paint = 0, 0
+    for i in section:
+        if i > paint:
+            paint = i + m - 1
             answer += 1
-            paint = section[i]
+        
         
     return answer
