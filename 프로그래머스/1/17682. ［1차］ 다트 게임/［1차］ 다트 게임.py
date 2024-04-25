@@ -1,29 +1,29 @@
 def solution(dartResult):
-    res = []
-    cnt = 0 #한판 점수
-    dartResult = dartResult.replace("10", "t")
     
-    for n in dartResult:
-        if n.isnumeric():
-            cnt += int(n)
-            continue
-        elif n == 't': # 10점
-            cnt += 10
-            continue
-        elif n == 'S':
-            res.append(cnt)
-        elif n == 'D':
-            res.append(cnt ** 2)
-        elif n == 'T':
-            res.append(cnt ** 3)
-        elif n == '*':
-            if len(res) > 1:
-                res[-1] *= 2
-                res[-2] *= 2
+    n = ''
+    score = []
+    for i in dartResult:
+        if i.isnumeric():
+            n += i
+        elif i == 'S':
+            n = int(n) **1
+            score.append(n)
+            n = ''
+        elif i == 'D':
+            n = int(n) **2
+            score.append(n)
+            n = ''
+        elif i == 'T':
+            n = int(n) **3
+            score.append(n)
+            n = ''
+        elif i == '*':
+            if len(score) > 1:
+                score[-1] = score[-1] * 2
+                score[-2] = score[-2] * 2
             else:
-                res[-1] *= 2
-        elif n == '#':
-            res[-1] *= -1
-        cnt = 0
+                score[-1] = score[-1] * 2
+        elif i == '#':
+            score[-1] = score[-1] * -1
             
-    return sum(res)
+    return sum(score)
