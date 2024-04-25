@@ -1,12 +1,14 @@
 def solution(s):
+    
     answer = 0
-    cnt1 = 0; cnt2 = 0
+    same, different = 0, 0
+    
     for i in s:
-        if cnt1 == cnt2:
+        if same == different:
             answer += 1
             k = i
         if k == i:
-            cnt1 += 1
+            same += 1
         else:
-            cnt2 += 1
+            different += 1
     return answer
