@@ -1,26 +1,21 @@
 def solution(answers):
-    answer = []
-    p1 = [1, 2, 3, 4, 5]
-    p2 = [2, 1, 2, 3, 2, 4, 2, 5]
-    p3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5, 3, 3, 1, 1, 2, 2, 4, 4, 5, 5]
-    
-    result = [0, 0, 0]
+    answer = [0,0,0]
     output = []
     
-    for idx, answer in enumerate(answers):
-        
-        if answer == p1[idx%len(p1)]:
-            result[0] += 1
-        if answer == p2[idx%len(p2)]:
-            result[1] += 1
-        if answer == p3[idx%len(p3)]:
-            result[2] += 1
-            
-    if result[0] == max(result):
-        output.append(1)
-    if result[1] == max(result):
-        output.append(2)
-    if result[2] == max(result):
-        output.append(3)
+    p1 = [1,2,3,4,5]
+    p2 = [2,1,2,3,2,4,2,5]
+    p3 = [3,3,1,1,2,2,4,4,5,5]
+    
+    for idx in range(len(answers)):
+        if answers[idx] == p1[idx % len(p1)]:
+            answer[0] += 1
+        if answers[idx] == p2[idx % len(p2)]:
+            answer[1] += 1
+        if answers[idx] == p3[idx % len(p3)]:
+            answer[2] += 1
+    
+    for idx, i in enumerate(answer):
+        if i == max(answer):
+            output.append(idx+1)
             
     return output
