@@ -2,21 +2,16 @@ from itertools import permutations
 def solution(k, dungeons):
     answer = 0
     
-    dun_len = len(dungeons)
-    
-    for permute in permutations(dungeons, dun_len):
-        hp = k
-        count = 0 
+    for permutation in permutations(dungeons, len(dungeons)):
+        cnt = 0
+        tmp = k
         
-        #print(permute)
-        
-        for pm in permute:
-            #print(pm)
-            if hp >= pm[0]:
-                hp -= pm[1]
-                count += 1
+        for fatique in permutation:
+            if tmp >= fatique[0]:
+                tmp -= fatique[1]
+                cnt +=1
             
-            if count > answer:
-                answer = count
+            if cnt > answer:
+                answer = cnt
     
     return answer
